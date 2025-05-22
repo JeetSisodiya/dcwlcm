@@ -1,375 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Straw Hats Crew - Join the Legendary Adventure!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Straw Hats Crew - Join the Legendary Adventure!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background: #071126;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-            position: relative;
-            font-family: 'Montserrat', sans-serif;
-            color: #d8e2eb;
-        }
+    html, body {
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: #071126;
+      overflow-x: hidden;
+      color: #d8e2eb;
+    }
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(7, 17, 38, 0.8) 0%, rgba(26, 60, 97, 0.9) 100%), 
-                        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23d8e2eb' fill-opacity='0.2' d='M0,160L60,144C120,128,240,96,360,112C480,128,600,192,720,192C840,192,960,128,1080,112C1200,96,1320,128,1380,144L1440,160L1440,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: cover;
-            animation: waveAnimation 20s linear infinite;
-            z-index: 0;
-        }
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      z-index: 1;
+    }
 
-        /* Particle System */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 17, 38, 0.6), rgba(26, 60, 97, 0.7)),
+                  url("./wallpaperflare.com_wallpaper_2.jpg") center/cover no-repeat;
+      z-index: 0;
+      animation: zoomEffect 60s ease-in-out infinite alternate;
+    }
 
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: #e6c068;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: float 15s infinite ease-in-out;
-        }
+    @keyframes zoomEffect {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
 
-        /* Container with Glassmorphism */
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            max-width: 90%;
-            width: 700px;
-            border: 1px solid rgba(230, 192, 104, 0.3);
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    .animated-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
 
-        /* Header */
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
+    .animated-bg span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: rgba(230, 192, 104, 0.3);
+      animation: float 20s linear infinite;
+      bottom: -150px;
+      border-radius: 50%;
+    }
 
-        h1 {
-            font-size: 3rem;
-            color: #e6c068;
-            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-            font-family: 'Playfair Display', serif;
-            letter-spacing: 2px;
-        }
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+      }
+    }
 
-        p {
-            font-size: 1.2rem;
-            color: #d8e2eb;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
+    .container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 20px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(230,192,104, 0.3);
+    }
 
-        .join-btn {
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            color: #071126;
-            background: #e6c068;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(230, 192, 104, 0.5);
-            font-family: 'Playfair Display', serif;
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 300px;
-        }
+    h1 {
+      font-size: 2.5rem;
+      color: #e6c068;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px #000;
+    }
 
-        .join-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.5s;
-        }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
 
-        .join-btn:hover::before {
-            left: 100%;
-        }
+    .join-btn {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 40px;
+      background: #e6c068;
+      color: #071126;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(230, 192, 104, 0.5);
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .join-btn:hover {
-            background: #d8e2eb;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(216, 226, 235, 0.7);
-        }
+    .join-btn:hover {
+      background: #d8e2eb;
+      transform: translateY(-3px);
+    }
 
-        /* Footer */
-        footer {
-            width: 100%;
-            background: #071126;
-            padding: 20px;
-            text-align: center;
-            color: #e6c068;
-            font-size: 1rem;
-            text-shadow: 1px 1px 2px #000000;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
-            position: relative;
-            border-top: 3px solid #e6c068;
-            font-family: 'Playfair Display', serif;
-            margin-top: auto;
-            z-index: 2;
-        }
+    .join-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+    }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #e6c068, transparent);
-            animation: glowPulse 3s ease-in-out infinite;
-        }
+    .join-btn:hover::before {
+      left: 100%;
+    }
 
-        footer p {
-            margin: 0;
-            position: relative;
-            z-index: 1;
-        }
+    footer {
+      background: #071126;
+      color: #e6c068;
+      text-align: center;
+      padding: 20px;
+      font-size: 1rem;
+      z-index: 2;
+      border-top: 2px solid #e6c068;
+    }
 
-        .social-icons {
-            margin-top: 10px;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+    footer .social-icons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        .social-icons a {
-            color: #d8e2eb;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
+    .social-icons a {
+      color: #d8e2eb;
+      font-size: 1.2rem;
+      transition: color 0.3s, transform 0.3s;
+    }
 
-        .social-icons a:hover {
-            color: #e6c068;
-            transform: translateY(-5px);
-        }
+    .social-icons a:hover {
+      color: #e6c068;
+      transform: translateY(-5px);
+    }
 
-        /* Audio Toggle */
-        .audio-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            z-index: 3;
-            background: #e6c068;
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(230, 192, 104, 0.5);
-            transition: transform 0.3s;
-        }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
 
-        .audio-toggle:hover {
-            transform: scale(1.1);
-        }
+      p {
+        font-size: 1rem;
+      }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 80vh;
-                padding: 20px;
-            }
+      .join-btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
 
-            .container {
-                padding: 30px;
-                max-width: 95%;
-            }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.6rem;
+      }
 
-            h1 {
-                font-size: 2.2rem;
-            }
+      .join-btn {
+        font-size: 0.9rem;
+        padding: 12px 24px;
+      }
 
-            p {
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-
-            .join-btn {
-                padding: 12px 30px;
-                font-size: 1rem;
-                max-width: 250px;
-            }
-
-            footer {
-                padding: 15px;
-                font-size: 0.9rem;
-            }
-
-            .social-icons {
-                gap: 10px;
-            }
-
-            .social-icons a {
-                font-size: 1.2rem;
-            }
-
-            .audio-toggle {
-                top: 10px;
-                right: 10px;
-                padding: 6px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            .join-btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-                max-width: 200px;
-            }
-
-            footer {
-                padding: 10px;
-                font-size: 0.8rem;
-            }
-
-            .social-icons a {
-                font-size: 1rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes waveAnimation {
-            0% { background-position: 0 0; }
-            100% { background-position: 1440px 0; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0); opacity: 0.5; }
-            50% { transform: translateY(100vh) translateX(30px); opacity: 0.2; }
-            100% { transform: translateY(0) translateX(0); opacity: 0.5; }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes glowPulse {
-            0% { opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { opacity: 0.3; }
-        }
-    </style>
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Audio Toggle -->
-    <div class="audio-toggle" onclick="toggleAudio()">🔊</div>
 
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
+  <div class="hero">
+    <div class="animated-bg">
+      <!-- Generate multiple floating particles -->
+      <span style="left: 10%; animation-duration: 18s;"></span>
+      <span style="left: 30%; animation-duration: 22s;"></span>
+      <span style="left: 50%; animation-duration: 16s;"></span>
+      <span style="left: 70%; animation-duration: 24s;"></span>
+      <span style="left: 90%; animation-duration: 20s;"></span>
+      <span style="left: 25%; animation-duration: 25s;"></span>
+      <span style="left: 60%; animation-duration: 19s;"></span>
+      <span style="left: 80%; animation-duration: 21s;"></span>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="header">
-                <h1>Straw Hats Crew</h1>
-            </div>
-            <p>
-                Embark on a legendary journey with the Straw Hats Crew! 
-                Join our exclusive server to dive into Luffy’s epic adventures, 
-                share fan creations, and connect with elite pirates. 
-                The One Piece awaits—set sail in style!
-            </p>
-            <button class="join-btn" onclick="joinCrew()">Join the Legendary Crew!</button>
-        </div>
-    </section>
+    <div class="container">
+      <h1>Straw Hats Crew</h1>
+      <p>
+        Embark on a legendary journey with the Straw Hats Crew! Join our exclusive server to dive into Luffy’s epic adventures, share fan creations, and connect with elite pirates. The One Piece awaits—set sail in style!
+      </p>
+      <button class="join-btn" onclick="joinCrew()">Join the Legendary Crew!</button>
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>🏴‍☠️ Straw Hats Crew © 2025 | <a href="#" onclick="alert('Set sail with us on Discord!')">Contact Us</a> 🏴‍☠️</p>
-        <div class="social-icons">
-            <a href="#" onclick="alert('Follow us on Twitter!')"><i class="fab fa-twitter"></i>𝕏</a>
-            <a href="#" onclick="alert('Join us on Discord!')"><i class="fab fa-discord"></i>Discord</a>
-        </div>
-    </footer>
+  <footer>
+    <p>🏴‍☠️ Straw Hats Crew © 2025 | <a href="#" onclick="alert('Set sail with us on Discord!')">Contact Us</a></p>
+    <div class="social-icons">
+      <a href="#" onclick="alert('Follow us on Twitter!')">𝕏</a>
+      <a href="#" onclick="alert('Join us on Discord!')">Discord</a>
+    </div>
+  </footer>
 
-    <script>
-        // Join Crew Function
-        function joinCrew() {
-            alert("Welcome aboard, legendary pirate! 🏴‍☠️ Check your Discord for the Straw Hats Crew invite link!");
-        }
-
-        // Particle Animation
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 80; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-            particle.style.left = `${Math.random() * 100}vw`;
-            particle.style.animationDelay = `${Math.random() * 15}s`;
-            particlesContainer.appendChild(particle);
-        }
-
-        // Audio Toggle (Simulated)
-        let audioPlaying = false;
-        function toggleAudio() {
-            audioPlaying = !audioPlaying;
-            const toggleBtn = document.querySelector('.audio-toggle');
-            toggleBtn.textContent = audioPlaying ? '🔇' : '🔊';
-            alert(audioPlaying ? 'Pirate music playing! 🎶' : 'Music paused. 🎶');
-        }
-    </script>
+  <script>
+    function joinCrew() {
+      alert("Welcome aboard, legendary pirate! 🏴‍☠️ Check your Discord for the Straw Hats Crew invite link!");
+    }
+  </script>
 </body>
 </html>
